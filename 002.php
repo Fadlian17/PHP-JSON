@@ -13,8 +13,10 @@ class movieDB
     }
 
     //10 judul film indonesia
+    //https://api.themoviedb.org/3/discover/movie?api_key=5baf45214039cf9ae474a0d55c8939a4&region=id&sort_by=popularity.asc&include_adult=false
     public function indonesianMovies()
     {
+
         $path = 'discover/movie';
         $query = '&region=id&sort_by=popularity.asc&include_adult=false';
 
@@ -26,6 +28,7 @@ class movieDB
     }
 
     //film yang dibintangi Aktor Keanu Reeves(single actor)
+    //https://api.themoviedb.org/3/person/6384/movie_credits?api_key=5baf45214039cf9ae474a0d55c8939a4
     public function KeanuMovies($path)
     {
         $path = "person/$path/movie_credits";
@@ -37,6 +40,7 @@ class movieDB
     }
 
     //film yang dibintangi dua aktor yaitu Robert Downey Junior dan Tom Holland(double actor)
+    //https://api.themoviedb.org/3/person/3223/movie_credits?api_key=5baf45214039cf9ae474a0d55c8939a4
     public function RobertTom($actor1, $actor2)
     {
         $path1 = "person/$actor1/movie_credits";
@@ -54,7 +58,8 @@ class movieDB
         }
     }
 
-    //Film Tahunan dengan Rating terbaik
+    //Film Tahunan dengan Rating 7.5 Keatas
+    //https://api.themoviedb.org/3/discover/movie?api_key=5baf45214039cf9ae474a0d55c8939a4&sort_by=popularity.desc&include_adult=false&primary_release_year=2016&vote_average.gte=7.5
     public function MovieofTheYear($year, $votes)
     {
         $path = 'discover/movie';
